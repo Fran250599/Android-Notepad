@@ -12,6 +12,8 @@ appcenter login --token $AppCenterTokenForTest
 
 appcenter test generate uitest --platform android --output-path /Users/runner/work/1/a/GeneratedTest
 
+dotnet add package Xamarin.UITest --version 4.1.2
+
 nuget restore -NonInteractive /Users/runner/work/1/a/GeneratedTest/AppCenter.UITest.Android.sln
 
 xbuild /Users/runner/work/1/a/GeneratedTest/AppCenter.UITest.Android.sln /p:Configuration=Release
@@ -25,3 +27,4 @@ cat /Users/runner/work/1/a/Artifacts/manifest.json
 appcenter test run manifest --manifest-path /Users/runner/work/1/a/Artifacts/manifest.json --app-path /Users/runner/work/1/a/build/com.ManualTestOnDevice.yourapp.apk --app AppCenterSupportDocs/ManualTestOnDevice --devices any_top_1_device --test-series launch-tests --locale en_US -p msft/test-run-origin=Build/Launch --debug --quiet --token $AppCenterTokenForTest
 
 echo "The Post Build Script END"
+
