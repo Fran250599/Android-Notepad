@@ -15,5 +15,3 @@ steps:
     tasks: 'build'
     javaHomeOption: 'JDKVersion'
     jdkVersionOption: '1.11'
-    sonarQubeRunAnalysis: false
-    spotBugsAnalysis: false
