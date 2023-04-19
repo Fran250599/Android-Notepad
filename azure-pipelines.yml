@@ -9,24 +9,11 @@ pool:
   vmImage: macos-latest
 
 steps:
-- task: Gradle@2
+- task: Gradle@3
   inputs:
-    workingDirectory: ''
     gradleWrapperFile: 'gradlew'
-    gradleOptions: '-Xmx3072m'
+    tasks: 'build'
     javaHomeOption: 'JDKVersion'
     jdkVersionOption: '1.11'
-    jdkArchitectureOption: 'x64'
-    publishJUnitResults: true
-    testResultsFiles: '**/TEST-*.xml'
-    tasks: 'build'
-- task: AppCenterDistribute@3
-  inputs:
-    serverEndpoint: 'App Center - SC'
-    appSlug: 'farguedas99/A-Notepad'
-    appFile: './sample.apk'
-    buildVersion: '1.2'
-    symbolsOption: 'Android'
-    releaseNotesOption: 'input'
-    releaseNotesInput: 'Distribute test.'
-    destinationType: 'groups'
+    sonarQubeRunAnalysis: false
+    spotBugsAnalysis: false
